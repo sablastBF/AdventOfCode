@@ -11,35 +11,34 @@ using namespace std;
 
 int main(){
 
-    fstream f = fstream("in_1.txt");
+    fstream f = fstream("in_2.txt");
     string line;
    
     int x = 0, y = 0;
+    vector<int> k(100, 0);
+    int siz = 0;
     while(getline(f,line)){
-        string s = "";
-        string smjer = "";
+        siz = line.size();
         for (int i = 0; i < line.size(); i++){
-            if (line[i] == ' '){
-                smjer = s;
-                s.clear();
-            } else {
-                 s.push_back(line[i]);
-            }
-        }
-
-        int p = stoi(s);
-        if (smjer == "forward"){
-            x+=p;
-        } else if (smjer == "down"){
-            y+=p;
-        } else if (smjer == "up"){
-            y-=p;
-        }
-
+            if (line[i] == '1') k[i]++;
+            else k[i]--;
+        }  
     }
-    cout <<"X " << x<<endl;
-    cout <<"Y "<< y<< endl;
-    cout << x*y<<endl;
+
+    int s1 = 0, s2 = 0;
+    cout << siz << endl;
+    for (int i = 0; i < siz; i++){
+        if (k[i] > 0){
+            s1 += 1;
+        } else {
+            s2 += 1;
+        }
+        s1 *= 2;
+        s2 *= 2;
+    }
+    s1 = s1 / 2;
+    s2 = s2 / 2;
+    cout << s1  <<" "<< s2  <<" "<< s1 * s2 << el;
     return 0;
 }
 
