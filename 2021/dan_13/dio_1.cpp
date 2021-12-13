@@ -12,6 +12,7 @@ using namespace std;
 
 vector<string> parse(string &v, char del){
     vector<string> sol;
+    
     string s;
     for (int i = 0; i < v.size(); i++){
         if (v[i] == del){
